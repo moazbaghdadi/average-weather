@@ -1,15 +1,14 @@
 package js.caf.logic;
 
-import js.caf.domain.DailyForecast;
-import js.caf.exception.NotEnoughDataPointsException;
-import js.caf.logic.AverageForecastCalculator;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import js.caf.domain.DailyForecast;
+import js.caf.exception.NotEnoughDataPointsException;
 
 /**
  * Created by mentlsve on 22/11/16.
@@ -25,7 +24,6 @@ public class AverageForecastCalculatorTest {
         dailyForecasts = new ArrayList<>();
     }
 
-    @Ignore
     @Test(expected = NotEnoughDataPointsException.class)
     public void throwExceptionIfThereIsOnlyOneForecast() {
 
@@ -36,7 +34,6 @@ public class AverageForecastCalculatorTest {
         averageForecastCalculator.calculateAverageMaxTemperatureOverDays(dailyForecasts, 10);
     }
 
-    @Ignore
     @Test(expected = NotEnoughDataPointsException.class)
     public void throwExceptionIfThereAreNotEnoughDataPoints() {
 
@@ -51,7 +48,6 @@ public class AverageForecastCalculatorTest {
         averageForecastCalculator.calculateAverageMaxTemperatureOverDays(dailyForecasts, 10);
     }
 
-    @Ignore
     @Test
     public void calculateAverageOverTheNextThreeDays() {
 
@@ -66,7 +62,6 @@ public class AverageForecastCalculatorTest {
         Assert.assertEquals(23.67f, res, 0.1f);
     }
 
-    @Ignore
     @Test
     public void calculateAverageOverTheNextTwoDays() {
 

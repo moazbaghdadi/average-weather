@@ -1,8 +1,9 @@
 package js.caf.logic;
 
-import js.caf.domain.DailyForecast;
-
 import java.util.List;
+
+import js.caf.domain.DailyForecast;
+import js.caf.exception.NotEnoughDataPointsException;
 
 /**
  * Created by mentlsve on 22/11/16.
@@ -10,7 +11,20 @@ import java.util.List;
 public class AverageForecastCalculator {
 
     public float calculateAverageMaxTemperatureOverDays(List<DailyForecast> dailyForecasts, int numberOfDays){
-        return 0.0f;
+        if(dailyForecasts.size() <= 1) {
+        	throw new NotEnoughDataPointsException();
+        }
+        
+        if(dailyForecasts.size() < numberOfDays) {
+        	throw new NotEnoughDataPointsException();
+        }
+        float sum = 0f;
+        
+        for (int i = 0; i<numberOfDays; i++) {
+        	sum += dailyForecasts.get(i).getMaxTemperatureInCelsius() + 32;
+        }
+        float result = sum/numberOfDays; 
+    	return result;
     }
 
 }
