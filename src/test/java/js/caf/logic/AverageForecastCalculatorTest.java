@@ -59,7 +59,7 @@ public class AverageForecastCalculatorTest {
         // object under test
         float res = averageForecastCalculator.calculateAverageMaxTemperatureOverDays(dailyForecasts, 3);
 
-        Assert.assertEquals(23.67f, res, 0.1f);
+		Assert.assertEquals(-8.33f, res, 0.1f);
     }
 
     @Test
@@ -75,7 +75,7 @@ public class AverageForecastCalculatorTest {
         // object under test
         float res = averageForecastCalculator.calculateAverageMaxTemperatureOverDays(dailyForecasts, 2);
 
-        Assert.assertEquals(22.50f, res, 0.1f);
+		Assert.assertEquals(-9.50f, res, 0.1f);
     }
 
 

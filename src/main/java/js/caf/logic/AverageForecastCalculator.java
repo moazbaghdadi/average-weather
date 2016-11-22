@@ -19,7 +19,7 @@ public class AverageForecastCalculator {
 
 		int min = Math.min(dailyForecasts.size(), numberOfDays);
 		for (int i = 0; i < min; i++) {
-			average += dailyForecasts.get(i).getMaxTemperatureInCelsius() + 32;
+			average += dailyForecasts.get(i).getMaxTemperatureInCelsius();
 		}
 		average /= min;
 
